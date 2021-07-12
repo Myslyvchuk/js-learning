@@ -59,12 +59,8 @@ class BookList {
   add(book) {
     this.books.push(book);
     this.booksNotFinished++;
-    if(this.books.length === 1) {
-      this.currentBook = this.books[0];
-    }
-    if(this.books.length === 2) {
-      this.nextBook = this.books[1];
-    }
+    this.currentBook = this.books[this.booksFinished];
+    this.nextBook = this.books[this.booksFinished + 1];
   }
 
   finishCurrentBook() {
@@ -72,7 +68,8 @@ class BookList {
     this.booksNotFinished--;
     this.currentBook.markAsRead();
     this.lastBook = this.currentBook;
-    this.currentBook = this.nextBook;
+    this.currentBook = this.books[this.booksFinished];
+    this.nextBook = this.books[this.booksFinished + 1];
   }
 
 }
@@ -91,3 +88,5 @@ class Book {
     this._dateFinished = new Date(Date.now());
   }
 }
+
+
