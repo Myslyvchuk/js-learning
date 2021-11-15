@@ -1,25 +1,15 @@
 'use strict'
 // Currying
-function currying(f) {
+function mergeWords(f) {
   return function (a) {
-    return function (b) {
-      return function (c) {
-        return function (d) {
-          return function (e){
-            return f(a, b, c, d, e);
-          }
-        }
-      }
+    if (a) {
+      return mergeWords(`${f} ${a}`)
     }
+    return f
   }
 }
-function concatWords(a, b, c, d, e) {
-  return console.log(`${a} ${b} ${c} ${d}`);
-}
 
-let mergeWords = currying(concatWords);
-
-mergeWords('GNU')('is')('not')('Unix.')(); // Output: ‘GNU is not Unix.’
+console.log(mergeWords('GNU')('is')('not')('Unix.')()); // Output: ‘GNU is not Unix.’
 
 //Every/Some
 
