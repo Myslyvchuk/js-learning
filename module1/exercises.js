@@ -86,7 +86,7 @@ function deepEqual(obj1, obj2) {
     return true;
   } else if ((typeof obj1 == "object" && obj1 != null) && (typeof obj2
       == "object" && obj2 != null)) {
-    if (Object.keys(obj1).length != Object.keys(obj2).length) {
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
       return false;
     }
 
