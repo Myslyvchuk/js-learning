@@ -2,8 +2,7 @@
 //Array to List
 function arrayToList(array) {
   let obj = {};
-  obj.value = array[0];
-  array.shift();
+  obj.value = array.shift();
   obj.rest = (array.length > 0) ? arrayToList(array) : null;
   return obj;
 }
@@ -24,11 +23,7 @@ console.log(listToArray(arrayToList([10, 20, 30]))); // → [10, 20, 30]
 console.log(getKeyValuePairs({red: "#FF0000", green: "#00FF00", white: "#FFFFFF"}))// → [["red","#FF0000"],["green","#00FF00"],["white","#FFFFFF"]]
 
 function getKeyValuePairs(colorObj) {
-  let colorArr = [];
-  for (const [key, value] of Object.entries(colorObj)) {
-    colorArr.push([`${key}`,`${value}`]);
-  }
-  return colorArr;
+  return Object.entries(colorObj);
 }
 
 //Invert keys and values
@@ -83,24 +78,19 @@ setTimeout(function() {
 
 //Groups
 class Group {
-  constructor() {
-    this.group = [];
+  constructor(array) {
+    this.group = [...array];
   }
-
   static from(array) {
-    let obj = new Group();
-    this.staticAdd(array, obj);
-    return obj;
-  }
-
-  static staticAdd(array, obj) {
-    array
-    .filter((v, index) => obj.group.indexOf(v) !== index)
-    .map(v => obj.group.push(v));
+    return new Group(
+        array.filter((v, index) => array.indexOf(v) === index)
+    );
   }
 
   add(numToAdd) {
-    return Group.staticAdd(Array.of(numToAdd), this);
+    if(!this.group.includes(numToAdd)){
+      this.group.push(numToAdd);
+    }
   }
   delete(num) {
     let idx = this.group.indexOf(num);
