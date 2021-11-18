@@ -7,7 +7,7 @@ class Point {
   }
 
   plus(point) {
-    return new Point(this._x + point.x, this._y + point.y);
+    return new Point(this._x + point._x, this._y + point._y);
   }
 }
 
@@ -60,10 +60,10 @@ class BookList {
     this.books.push(book);
     this.booksNotFinished++;
     if(this.books.length === 1) {
-      this.currentBook = book[0];
+      this.currentBook = this.books[0];
     }
     if(this.books.length === 2) {
-      this.nextBook = book[1];
+      this.nextBook = this.books[1];
     }
   }
 
