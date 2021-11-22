@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Exercises</title>
+</head>
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .container-1 {
+    flex-direction: column;
+      flex: 1
+  }
+
+  .input-box {
+    flex: 1;
+  }
+
+  .text-box {
+    flex: 1;
+  }
+
+  .p-box {
+    flex: 1
+  }
+
+</style>
+<body>
+<h1>Search</h1>
+<div class="container">
+  <div class="container-1">
+    <div class="input-box">
+      <input type="text" id="input-box-id" name="name" required size="40">
+    </div>
+    <br>
+    <div class="text-box">
+      <textarea id="text-box-id" rows="10" cols="40"></textarea>
+    </div>
+  </div>
+  <div class="p-box">
+    <p id="p-box-id"></p>
+  </div>
+</div>
+</body>
+<script type="text/javascript" src="search.js"></script>
+</html>
