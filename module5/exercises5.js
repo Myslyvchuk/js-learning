@@ -26,16 +26,16 @@ let promiseResult = runPromisesInSeries([
 
 //Building Promise.all
 function Promise_all(promises) {
-  let resolved = 0;
-  let results = [];
   return new Promise((resolve, reject) => {
+    let loopLength = promises.length;
+    let results = new Array(loopLength);
     if (promises.length === 0) {
       resolve(results);
     }
-    promises.forEach(promise => {
+    promises.forEach((promise,i) => {
       promise.then((result) => {
-        results.push(result);
-        if (++resolved === promises.length) {
+        results[i] = result;
+        if ((--loopLength) === 0) {
           resolve(results);
         }
       }).catch((e) => {
