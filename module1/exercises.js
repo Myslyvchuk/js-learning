@@ -1,7 +1,7 @@
 // Change the capitalization of all letters in a string
-'use strict'
+"use strict"
 String.prototype.reverseCapitalization = function () {
-  let result = ''
+  let result = ""
   for (let i = 0; i < this.length; i++) {
     if (this.charCodeAt(i) >= 65 && this.charCodeAt(i) <= 90) {
       result += this[i].toLowerCase();
@@ -38,7 +38,7 @@ console.log(filterNonUnique([1, 2, 3, 4])); // Output: [1,2,3,4]
 //Sort string in alphabetical order
 
 function alphabetSort(sortString) {
-  return sortString.split('').sort().join('');
+  return sortString.split("").sort().join("");
 }
 
 console.log(alphabetSort("Python")); // Output: ‘Phnoty’
@@ -78,7 +78,7 @@ const getArrayElementsPairs = function (array1, array2) {
   return result;
 }
 
-console.log(getArrayElementsPairs([1, 2], ['a', 'b'])); // Output: [[1, “a”], [1, “b”], [2, “a”], [2, “b”]]
+console.log(getArrayElementsPairs([1, 2], ["a", "b"])); // Output: [[1, “a”], [1, “b”], [2, “a”], [2, “b”]]
 
 //deepEqual
 function deepEqual(obj1, obj2) {
@@ -113,12 +113,12 @@ console.log(deepEqual(obj, {here: {is: "an"}, object: 2})); // Output: true
 //formatDate
 
 Array.prototype.concatArrayIntoDashString = function () {
-  let result = '';
+  let result = "";
   for (let i = 0; i < this.length; i++) {
     //if month then add 1
     result += i === 1 ? this[i] + 1 : this[i];
     if (i !== this.length - 1) {
-      result += '-'
+      result += "-"
     }
   }
   return result;
@@ -129,15 +129,15 @@ const formatDate = function (date) {
     date = date.concatArrayIntoDashString();
   }
   let d = new Date(date);
-  let day = d.getDate().toString().length < 2 ? ('0' + d.getDate())
+  let day = d.getDate().toString().length < 2 ? ("0" + d.getDate())
       : d.getDate().toString();
-  let month = (d.getMonth() + 1).toString().length < 2 ? ('0' + (d.getMonth()
+  let month = (d.getMonth() + 1).toString().length < 2 ? ("0" + (d.getMonth()
       + 1)) : (d.getMonth() + 1).toString();
   let year = d.getFullYear().toString().substring(2);
   return `${day}.${month}.${year}`;
 }
 
-console.log(formatDate('2011-10-02')); // 02.10.11
+console.log(formatDate("2011-10-02")); // 02.10.11
 console.log(formatDate(1234567890000)); // 14.02.09
 console.log(formatDate([2014, 0, 1])); // 01.01.14
 console.log(formatDate(new Date(2014, 0, 1))); // 01.01.14
