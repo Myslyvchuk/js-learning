@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 //Delay
 function delay(timeout){
   return new Promise(resolve => {
@@ -17,10 +17,10 @@ function runPromisesInSeries(arrayOfPromises){
 
 let promiseResult = runPromisesInSeries([
   () => delay(1000).then(() => {
-    console.log('message in 1 second')
+    console.log("message in 1 second")
   }),
   () => delay(2000).then(() => {
-    console.log('message in 3 seconds')
+    console.log("message in 3 seconds")
   })
 ]);
 
@@ -81,10 +81,10 @@ let [...first10] = fibonacci(40);
 console.log(first10); // → [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 //Generator helper
-const asyncTask1 = () => new Promise((resolve, reject) => setTimeout(() => resolve('first resolved'), 1000));
-const asyncTask2 = () => new Promise((resolve, reject) => setTimeout(() => resolve('second resolved'), 1000));
-const asyncTask3 = () => new Promise((resolve, reject) => setTimeout(() => reject('third rejected'), 1000));
-console.log('invoke helper')
+const asyncTask1 = () => new Promise((resolve, reject) => setTimeout(() => resolve("first resolved"), 1000));
+const asyncTask2 = () => new Promise((resolve, reject) => setTimeout(() => resolve("second resolved"), 1000));
+const asyncTask3 = () => new Promise((resolve, reject) => setTimeout(() => reject("third rejected"), 1000));
+console.log("invoke helper")
 
 helper(
     function* main() {
@@ -95,7 +95,7 @@ helper(
         console.log(b);
         const c = yield asyncTask3();
       } catch (e) {
-        console.error('error happened', e);
+        console.error("error happened", e);
       }
     }
 );

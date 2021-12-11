@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 //Point
 class Point {
   constructor(x, y) {

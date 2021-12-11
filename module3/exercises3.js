@@ -1,4 +1,4 @@
-'use strict'
+"use strict"
 //Array to List
 function arrayToList(array) {
   let obj = {};
