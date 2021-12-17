@@ -166,7 +166,14 @@ const githubRequest = async (login) => {
 };
 githubRequest("eveporcello");
 
+class Flower {
+  constructor(color, quantity) {
+    this.color = color;
+    this.quantity = quantity;
+    this[color] = quantity;
+  }
+}
 
+let flower = new Flower("blue", 3);
 
-
-
+console.log(flower);
